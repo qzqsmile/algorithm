@@ -27,7 +27,12 @@ public:
         */
         
         //solution 3
-        
+        /*
+		at first, nums[] is [1,2,3,4,5,6,7], n is 7, k is 3
+		after first outer loop, nums[] is [4,1,2,3], n is 4, k is 3
+		after second outer loop, nums[] is [4], n is 1, k is 0
+		loop ends.
+		*/
         for (; k %= n; n -= k)
             for (int i = 0; i < k; i++)
                 swap(*nums++, nums[n - k]);
