@@ -1,9 +1,11 @@
 class Solution {
 	public:
-		bool canJump(int A[], int n) {
-			int last=n-1,i,j;
-			for(i=n-2;i>=0;i--){
-				if(i+A[i]>=last)last=i;
+		bool canJump(vector<int>& nums) {
+			int last = nums.size()-1;
+			for(int i = last-1; i >= 0; i--)
+			{
+				if(nums[i] + i >= last)
+					last = i;
 			}
 			return !last;
 		}
