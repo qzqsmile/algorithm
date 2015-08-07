@@ -1,3 +1,7 @@
+//这题有几个注意的地点
+//1 INT_MAX INT_MIN
+//2 输入前是否有空格
+//3 开始是否有非法字符
 class Solution {
 	public:
 		int atoi(string str) {
