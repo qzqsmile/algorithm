@@ -1,32 +1,23 @@
 class Solution {
-	public:
-		string countAndSay(int n) {
-			string res = "1";
-			string s="1";
-
-			for( ; n > 1; n--)
-			{
-				res.clear();
-				int count = 0; 
-				char s1 = s[0];
-
-				for(int cur = 0; cur < s.size(); cur++)
-				{
-					if(s1 == s[cur])
-						count++;
-					else
-					{
-						res += to_string(count);
-						res += s1;
-						s1 = s[cur];
-						count = 1;
-					}
-				}
-				res += to_string(count);
-				res += s1;
-				s = res;
-			}
-
-			return res;
-		}
-};
+public:
+    string countAndSay(int n) {
+        string res("1");
+        
+        for(int i = 0; i < (n-1); i++)
+        {
+            int k = 0;
+            string s = res;
+            res.clear();
+            for(int j = 0; j < s.size(); j=k)
+            {
+                int count = 0;
+                for( k = j; s[k] == s[j] && k < s.size(); k++)
+                    count++;
+                res.push_back(count+'0');
+                res.push_back(s[j]);
+            }
+        }
+        
+        return res;
+    }
+};  

@@ -1,60 +1,60 @@
 class Solution {
-	public:
-		vector<int> spiralOrder(vector<vector<int> > &matrix) {
-			vector<int> res;
-
-			if(matrix.size() > 0)
-				printmatrix(res, matrix, 0, matrix.size()-1, matrix[0].size()-1);
-
-			return res;
-		}
-
-		void printmatrix(vector<int> &res, vector<vector<int> >&matrix, int begin, int m, int n)
-		{
-			if((begin >= m) || (begin >= n))
-			{
-				if((begin == m) && (m == n))
-					res.push_back(matrix[begin][begin]);
-				else if((begin == m) && (n > begin))
-				{
-					for(int i = begin; i <= n; i++)
-						res.push_back(matrix[begin][i]);
-				}
-				else if((begin == n) && (m > begin))
-				{
-					for(int i = begin; i <= m; i++)
-						res.push_back(matrix[i][begin]);
-				}
-				return ;
-			}
-			else
-			{
-				//row
-				for(int i = begin; i < n; i++)
-				{
-					res.push_back(matrix[begin][i]);
-				}
-
-				//col
-				for(int i = begin; i < m; i++)
-				{
-					res.push_back(matrix[i][n]);
-				}
-
-				//bottom row
-
-				for(int i = n; i > begin; i--)
-				{
-					res.push_back(matrix[m][i]);
-				}
-
-				//left col
-				for(int i = m; i > begin; i--)
-				{
-					res.push_back(matrix[i][begin]);
-				}
-
-				printmatrix(res, matrix, begin+1, m-1, n-1);
-			}
-		}
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        if(!matrix.size())  return vector<int>();
+       int row  = matrix.size(), col = matrix[0].size();
+       vector<int>res;
+       
+       game(res, matrix, 0, row-1, col-1);
+       return res;
+    }
+    
+//这里关键是要把长度和宽度为一的边特殊考虑
+    void game(vector<int>& res, vector<vector<int>> &matrix, int begin, int row, int col)
+    {
+        if((begin > row) || (begin > col))
+            return;
+       
+        if(begin == col)
+        {
+            for(int i = begin; i <= row; i++)
+            {
+                res.push_back(matrix[i][col]);
+            }
+            return ;
+        }
+        if(begin == row)
+        {
+            for(int i = begin; i <= col; i++)
+            {
+                res.push_back(matrix[row][i]);
+            }
+            return;
+        }
+        //up left to right
+        for(int i = begin; i < col; i++)
+        {
+            res.push_back(matrix[begin][i]);
+        }
+        
+        //right up to down
+        for(int i = begin; i < row; i++)
+        {
+            res.push_back(matrix[i][col]);
+        }
+        
+        //down right to left
+        for(int i = col; i > begin; i--)
+        {
+            res.push_back(matrix[row][i]);
+        }
+        
+        //left down to up
+        for(int i = row; i > begin; i--)
+        {
+            res.push_back(matrix[i][begin]);
+        }
+        
+        game(res, matrix,begin+1,row-1, col-1);
+    }
 };
