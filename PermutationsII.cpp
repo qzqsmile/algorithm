@@ -1,51 +1,32 @@
+/*
+这题要注意2点
+1.先对其进行排序可以减少复杂度
+2.要判断是否相等从而减少重复
+*/
 class Solution {
-	public:
-		int lengthOfLongestSubstring(string s) {
-
-			int m[129] = {0};
-			int i, j;
-			int cnt = 0, pre = 0;
-			int max = 0;
-			int c;
-
-			for (i = 0; c = s[i]; i++) {
-				if (pre < m[c]) {
-					if (max < cnt)
-						max = cnt;
-
-					cnt = i-m[c];
-					pre = m[c];
-				}
-
-				cnt++;
-				m[c] = i+1;
-			}
-			return max > cnt ? max : cnt;
-		}
-};
-class Solution {
-	public:
-		vector<vector<int> > permute(vector<int> &num) {
-			vector<vector<int> > result;
-
-			permuteRecursive(num, 0, result);
-			return result;
-		}
-
-		// permute num[begin..end]
-		// invariant: num[0..begin-1] have been fixed/permuted
-		void permuteRecursive(vector<int> &num, int begin, vector<vector<int> > &result)    {
-			if (begin >= num.size()) {
-				// one permutation instance
-				result.push_back(num);
-				return;
-			}
-
-			for (int i = begin; i < num.size(); i++) {
-				swap(num[begin], num[i]);
-				permuteRecursive(num, begin + 1, result);
-				// reset
-				swap(num[begin], num[i]);
-			}
-		}
+public:
+    void build(vector<vector<int> >&res, vector<int> nums, int k)
+    {
+        if(k == nums.size())
+        {
+            res.push_back(nums);
+            return ;
+        }
+        for(int i = k; i < nums.size(); i++)
+        {
+            if((i != k) && (nums[i] == nums[k]))
+                continue;
+            swap(nums[k], nums[i]);
+            build(res, nums, k+1);
+            //swap(nums[i], nums[k]);
+            //res.push_back(nums);
+        }
+    }
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int> >res;
+        if(!nums.size()) return res;
+        build(res, nums, 0);
+        return res;
+    }
 };
