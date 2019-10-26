@@ -1,5 +1,5 @@
 class Solution:
-    def restoreIpAddresses(self, s: str) -> List[str]:
+    def restoreIpAddresses(self, s):
         res = []
         self.helper(s, 0, 0, res)
         return res
