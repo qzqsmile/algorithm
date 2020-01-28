@@ -61,9 +61,14 @@ func dfs(word string, path []string, b string, e string){
 func main(){
 	//c := 'a'+1
 	//fmt.Printf(string(c))
-	beginWord := "hit"
-	endWord := "cog"
-	wordList := []string {"hot","dot","dog","lot","log","cog"}
-	findLadders(beginWord, endWord, wordList)
+	//beginWord := "hit"
+	//endWord := "cog"
+	//wordList := []string {"hot","dot","dog","lot","log","cog"}
+	//findLadders(beginWord, endWord, wordList)
+	s := make([]int, 0)
+	s = append(s, 1)
+	s1 := s
+	s1[0] = 4
+	fmt.Println(s)
 }
 
