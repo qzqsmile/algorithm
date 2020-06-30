@@ -1,1 +1,1 @@
-solutions to algorithm
+algorithm exercises
