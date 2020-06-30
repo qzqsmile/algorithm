@@ -1,3 +1,1 @@
-Leetcode solution two version
-python/C++
-
+solutions to algorithm
