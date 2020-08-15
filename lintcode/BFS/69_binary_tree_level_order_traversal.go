@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -45,17 +43,3 @@ func levelOrder (root *TreeNode) [][]int {
 	return res
 }
 
-
-func main(){
-	r := TreeNode{1,nil,nil}
-	n2 := TreeNode{2,nil,nil}
-	n3 := TreeNode{3,nil,nil}
-	n4 := TreeNode{4,nil,nil}
-	n5 := TreeNode{5,nil,nil}
-	r.Left = &n2
-	r.Right = &n3
-	n2.Left = &n4
-	n2.Right = &n5
-	res := levelOrder(&r)
-	fmt.Printf("%v", res)
-}
