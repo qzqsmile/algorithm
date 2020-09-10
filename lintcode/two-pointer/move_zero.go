@@ -1,4 +1,4 @@
-package two_pointer
+package main
 
 /**
  * @param nums: an integer array
