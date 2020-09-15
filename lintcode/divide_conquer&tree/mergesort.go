@@ -37,7 +37,7 @@ func mergesort(start int, end int, q *[]int){
 }
 
 func main(){
-	s := []int{3,4,1,1,555555,1,1,1,23,41,1}
+	s := []int{5, 2, 3, 1}
 	mergesort(0, len(s)-1, &s)
 	fmt.Println("s is %v", s)
 }
