@@ -1,42 +1,40 @@
 package main
 
-
 func findKthLargest(nums []int, k int) int {
-	return myhelper(nums, 0, len(nums)-1, len(nums)-k+1)
+	return quickSelect(nums, 0, len(nums)-1, len(nums)-k)
 }
 
-func myhelper(nums []int, start int, end int, k int) int{
-	povit := nums[(start+end)/2]
-	k1 := helper1(nums, 0, len(nums)-1, povit)
-	if k1+1 == k {
-		return povit
-	} else if k1+1 > k{
-		return myhelper(nums, start, k1-1, k)
-	} else{
-		return myhelper(nums, k1, end, k-k1)
-	}
-}
-
-func helper1(nums []int, start int, end int, povit int) int{
+func quickSelect(nums []int, start int, end int, k int) int {
+	pvoit := nums[start]
 	b, e := start, end
-	for;b < e; {
-		for;b < e && nums[b] < povit; b++{
+
+	for ; b <= e; {
+		for ; b <= e && nums[b] < pvoit; b++ {
+
 		}
-		for;b < e && nums[e] >= povit; e--{
+		for ; b <= e && nums[e] >= pvoit; e-- {
+
 		}
-		if b < e{
+		if b <= e {
 			nums[b], nums[e] = nums[e], nums[b]
 			b++
 			e--
 		}
 	}
-	if nums[b] < povit{
-		return b + 1
+
+	if k > b {
+		if nums[b] == pvoit {
+			return quickSelect(nums, b+1, end, k)
+		} else {
+			return quickSelect(nums, b, end, k)
+		}
+	} else if k < b {
+		return quickSelect(nums, start, b-1, k)
+	} else {
+		return pvoit
 	}
-	return b
 }
 
-func main(){
-	s := []int{3,2,1,5,6,4}
-	findKthLargest(s, 2)
+func main() {
+
 }
