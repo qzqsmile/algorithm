@@ -1,4 +1,4 @@
-package divide_conquer_tree
+package main
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
