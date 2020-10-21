@@ -1,4 +1,4 @@
-package LinkedList
+package main
 
 import "net/http"
 
