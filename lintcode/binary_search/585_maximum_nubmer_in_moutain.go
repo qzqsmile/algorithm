@@ -1,5 +1,5 @@
 package main
-
+//这题我觉的关键是要先利用一些if else把一些特殊的corner case给去掉
 
 /**
  * @param nums: a mountain sequence which increase firstly and then decrease
