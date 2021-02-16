@@ -1,19 +1,25 @@
 package main
 
+import "math"
+
 func minSubArrayLen(s int, nums []int) int {
-	minLength := len(nums) + 1
-	sum := 0
-	for i, j := 0, 0; j < len(nums); j++ {
-		sum += nums[j]
-		for ; i <= j && sum >= s; i++ {
-			if j-i+1 < minLength {
-				minLength = j - i + 1
+	left, right := 0, 0
+	sum, min := 0, math.MaxInt64
+	for right < len(nums){
+		c := nums[right]
+		right++
+		sum += c
+		for sum >= s{
+			if right-left < min{
+				min = right-left
 			}
-			sum -= nums[i]
+			c := nums[left]
+			sum -= c
+			left++
 		}
 	}
-	if minLength == len(nums)+1 {
+	if min == math.MaxInt64{
 		return 0
 	}
-	return minLength
+	return min
 }

@@ -1,54 +1,49 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func minWindow(s string, t string) string {
-	if t == "" || s == ""{
-		return ""
+	need := make(map[byte]int)
+	win := make(map[byte]int)
+	for _, v := range t{
+		need[byte(v)]++
 	}
-	mp := make(map[uint8] int)
-	count := 0
-	res :=  s+"T"
-	for i := 0; i < len(t); i++{
-		if _, ok := mp[t[i]]; ok{
-			mp[t[i]]++
-		}else{
-			mp[t[i]]=1
-			count++
+	left, right, match := 0, 0, 0
+	start, end := 0, 0
+	min := math.MaxInt64
+	for right < len(s){
+		c := s[right]
+		right++
+		if need[c] != 0{
+			win[c]++
+			if win[c] == need[c]{
+				match++
+			}
 		}
-	}
 
-	for i, j := 0, 0; i < len(s); {
-		for ;j < len(s);j++{
-			if _, ok := mp[s[j]]; ok{
-				mp[s[j]]--
-				if mp[s[j]] == 0{
-					count--
-					if count == 0{
-						j++
-						break
-					}
-				}
+		for match == len(need){
+			if right-left < min {
+				min = right - left
+				start = left
+				end = right
 			}
-		}
-		for ;i < len(s); i++{
-			if _, ok := mp[s[i]]; ok{
-				mp[s[i]]++
-				if mp[s[i]] == 1 && count == 0{
-					count++
-					if j-i < len(res){
-						res = s[i:j]
-					}
-					i++
-					break
+			c := s[left]
+			left++
+			if need[c] != 0 {
+				if win[c] == need[c] {
+					match--
 				}
+				win[c]--
 			}
 		}
 	}
-	if res == s+"T"{
+	if min == math.MaxInt64 {
 		return ""
 	}
-	return res
+	return s[start:end]
 }
 
 
