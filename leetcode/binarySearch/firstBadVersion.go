@@ -7,6 +7,9 @@ package binarySearch
  *			          false if current version is good
  * func isBadVersion(version int) bool;
  */
+func isBadVersion(version int) bool{
+	return true
+}
 
 func firstBadVersion(n int) int {
 	b, e := 1, n
