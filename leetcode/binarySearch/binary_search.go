@@ -1,6 +1,6 @@
 package binarySearch
 
-func search(nums []int, target int) int {
+func mysearch(nums []int, target int) int {
 	b, e := 0, len(nums)-1
 	for; b + 1 < e;{
 		m := b + (e - b)/2

@@ -1,7 +1,5 @@
 package binarySearch
 
-import "fmt"
-
 //not binary search
 
 func searchMatrix(matrix [][]int, target int) bool {

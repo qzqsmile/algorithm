@@ -1,6 +1,6 @@
 package binarySearch
 
-func searchMatrix(matrix [][]int, target int) bool {
+func searchMatrix1(matrix [][]int, target int) bool {
 	if len(matrix) == 0{
 		return false
 	}

@@ -1,4 +1,4 @@
-package main
+package binarySearch
 
 func nextGreatestLetter(letters []byte, target byte) byte {
 	if letters[len(letters)-1] <= target || letters[0] > target {
