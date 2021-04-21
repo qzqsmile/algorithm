@@ -1,6 +1,5 @@
-package main
+package linklist
 
-import "fmt"
 
 /**
  * Definition for singly-linked list.
