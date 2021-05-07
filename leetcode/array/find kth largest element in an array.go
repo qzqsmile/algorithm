@@ -1,4 +1,4 @@
-package arraya
+package array
 
 func findKthLargest(nums []int, k int) int {
 	heap := []int{}

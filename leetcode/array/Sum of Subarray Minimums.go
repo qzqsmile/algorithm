@@ -1,7 +1,6 @@
-package main
+package array
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -25,6 +24,3 @@ func min(a int, b int) int{
 	return b
 }
 
-func main(){
-	fmt.Println(100000000000)
-}

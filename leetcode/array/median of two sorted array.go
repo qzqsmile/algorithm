@@ -1,5 +1,7 @@
 package array
 
+import "math"
+
 //几点需要注意，1首先把找median转换为找第k个的问题
 // 2. 通过设置k1, k2为math.Int64这种guard point来简化代码
 // 3. k-k/2 != k/2因为有个除以舍去的问题
@@ -41,11 +43,5 @@ func findkth(nums1 []int, nums2 []int, k int) int{
 	}
 }
 
-func min(a int, b int) int{
-	if a < b{
-		return a
-	}
-	return b
-}
 
 

@@ -1,4 +1,4 @@
-package main
+package array
 
 func winSum (nums []int, k int) []int {
 	// write your code here

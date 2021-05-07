@@ -1,13 +1,11 @@
-package arraya
+package array
 
 import "testing"
 
-func TestSearch(t *testing.T){
-
-	got := search([]int{1,3,4,5,6,7,8,12}, 7)
-	want := 5
-
-	if got != want {
-		t.Errorf("got %q, wanted %q", got, want)
+func TestHeap(t *testing.T){
+	got := findKthLargest([]int{3,2,1,5,6,4}, 2)
+	wanted := 5
+	if got != wanted{
+		t.Errorf("got %d, wanted %d", got, wanted)
 	}
 }
