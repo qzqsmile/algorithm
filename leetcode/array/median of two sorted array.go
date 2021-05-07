@@ -1,5 +1,10 @@
 package array
 
+//几点需要注意，1首先把找median转换为找第k个的问题
+// 2. 通过设置k1, k2为math.Int64这种guard point来简化代码
+// 3. k-k/2 != k/2因为有个除以舍去的问题
+//
+//
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	m, n := len(nums1), len(nums2)
 	if (m+n)%2 == 0{
