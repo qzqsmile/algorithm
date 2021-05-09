@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package twopointer
 
 func checkInclusion(s1 string, s2 string) bool {
 	left, right := 0, 0
@@ -41,9 +39,4 @@ func isSub(m1 map[byte]int, m2 map[byte] int) bool{
 		}
 	}
 	return true
-}
-
-func main(){
-	fmt.Println(checkInclusion("ab", "eidbaooo"))
-
 }

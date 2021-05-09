@@ -1,4 +1,4 @@
-package main
+package twopointer
 
 func findAnagrams(s string, p string) []int {
 	res := []int{}
@@ -29,14 +29,3 @@ func findAnagrams(s string, p string) []int {
 	return res
 }
 
-func isSub(m1 map[byte]int, m2 map[byte] int) bool{
-	if len(m1) != len(m2){
-		return false
-	}
-	for k, _ := range m1{
-		if m1[byte(k)] != m2[byte(k)]{
-			return false
-		}
-	}
-	return true
-}

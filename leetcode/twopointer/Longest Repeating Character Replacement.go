@@ -1,4 +1,4 @@
-package main
+package twopointer
 
 import (
 	"math"
@@ -36,11 +36,4 @@ func findMost(mp map[byte]int) byte{
 		}
 	}
 	return most
-}
-
-func max(a int, b int) int{
-	if a > b{
-		return a
-	}
-	return b
 }

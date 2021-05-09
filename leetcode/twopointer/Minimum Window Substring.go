@@ -1,7 +1,6 @@
-package main
+package twopointer
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -46,11 +45,3 @@ func minWindow(s string, t string) string {
 	return s[start:end]
 }
 
-
-func main(){
-	s := "ADOBECODEBANC"
-	t1 := "ABC"
-	//wanted := "BANC"
-	r := minWindow(s, t1)
-	fmt.Print(r)
-}

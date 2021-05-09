@@ -1,4 +1,4 @@
-package main
+package twopointer
 
 func totalFruit(tree []int) int {
 	left, right, sum := 0, 0, 0
