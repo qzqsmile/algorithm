@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package twopointer
 
 func sortArray(nums []int) []int {
 	if len(nums) <= 1{
@@ -22,8 +20,3 @@ func sortArray(nums []int) []int {
 	return nums
 }
 
-func main(){
-	res := sortArray([]int{5,2,3,1})
-	//nums := []int{5,2,3,1}
-	fmt.Println(res)
-}

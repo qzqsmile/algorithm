@@ -1,6 +1,5 @@
-package main
+package twopointer
 
-import "fmt"
 
 /**
  * @param nums: The integer array you should partition
