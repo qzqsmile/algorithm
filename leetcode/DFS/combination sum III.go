@@ -6,11 +6,11 @@ func combinationSum3(k int, n int) [][]int {
 		candidate = append(candidate, i)
 	}
 	res := [][]int{}
-	dfs(candidate, n, k, 0, []int{}, &res)
+	dfscomination(candidate, n, k, 0, []int{}, &res)
 	return res
 }
 
-func dfs(candidate []int, target int, k int, index int, tmp []int, res *[][]int){
+func dfscomination(candidate []int, target int, k int, index int, tmp []int, res *[][]int){
 	if target < 0 || len(tmp) > k{
 		return
 	}
@@ -19,7 +19,7 @@ func dfs(candidate []int, target int, k int, index int, tmp []int, res *[][]int)
 	}
 	for i := index; i < len(candidate); i++{
 		tmp = append(tmp, candidate[i])
-		dfs(candidate, target-candidate[i], k, i+1, tmp, res)
+		dfscomination(candidate, target-candidate[i], k, i+1, tmp, res)
 		tmp = tmp[0:len(tmp)-1]
 	}
 }
