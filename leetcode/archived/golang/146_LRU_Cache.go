@@ -13,8 +13,8 @@ type LRUCache struct {
 
 
 func Constructor(capacity int) LRUCache {
-	lru := LRUCache{capacity:capacity}
-	lru.b = &linknode{key:0, value:0}
+	lru := LRUCache{capacity: capacity}
+	lru.b = &linknode{key: 0, value:0}
 	lru.m = make(map[int] *linknode)
 	lru.e = lru.b
 	return lru
@@ -40,14 +40,14 @@ func (this *LRUCache) Get(key int) int {
 func (this *LRUCache) Put(key int, value int)  {
 	if _, ok := this.m[key]; !ok{
 		if this.capacity > 0{
-			this.e.next = &linknode{key:key, value:value, pre:this.e, next:nil}
+			this.e.next = &linknode{key: key, value:value, pre:this.e, next:nil}
 			this.e = this.e.next
 			this.m[key] = this.e
 			this.capacity--
 		}else{
 			this.b = this.b.next
 			delete(this.m, this.b.key)
-			this.e.next = &linknode{key:key, value:value, pre:this.e, next:nil}
+			this.e.next = &linknode{key: key, value:value, pre:this.e, next:nil}
 			this.e = this.e.next
 			this.m[key] = this.e
 		}

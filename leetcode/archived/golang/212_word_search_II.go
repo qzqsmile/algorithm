@@ -13,7 +13,7 @@ type Trie struct {
 
 /** Initialize your data structure here. */
 func Constructor1() Trie {
-	root := Trie{root:&TrieNode{node: map[string]*TrieNode{}, isWord:false}}
+	root := Trie{root: &TrieNode{node: map[string]*TrieNode{}, isWord:false}}
 	return root
 }
 
