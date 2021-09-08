@@ -10,12 +10,12 @@ func partitionArray (nums []int, k int) int {
 	// write your code here
 	// nums = append(nums, k+1)
 	b, e := 0, len(nums)-1
-	for;b < len(nums) && nums[b] < k; b++{}
-	for;e >= 0 && nums[e] >= k; e--{}
-	for;b < e;{
-		for;b < e && nums[b] < k; b++{}
-		for;b < e && nums[e] >= k; e--{}
-		if b < e{
+
+	for;b <= e;{
+		//这里是b,也就是左指针先移动，所以会指向第一个比K大的数
+		for;b <= e && nums[b] < k; b++{}
+		for;b <= e && nums[e] >= k; e--{}
+		if b <= e{
 			nums[b], nums[e] = nums[e], nums[b]
 			b++
 			e--
