@@ -1,6 +1,5 @@
 package string
 
-import "strconv"
 
 func validIPAddress(IP string) string {
 	res := []int{-1}
@@ -60,7 +59,6 @@ func isIPv6(str string) bool{
 			return false
 		}
 	}
-	strconv.Itoa()
 	return true
 }
 

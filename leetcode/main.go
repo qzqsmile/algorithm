@@ -1,31 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
-func main() {
-	nums := []int{1,2,3}
-	res := permute(nums)
-	fmt.Println(res)
+func main(){
+	r := threeSumClosest([]int{-1,2,1,-4}, 1)
+	fmt.Println(r)
 }
 
-func permute(nums []int) [][]int {
-	res := [][]int{}
-	tmp := []int{}
-	dfs(nums, 0, tmp, &res)
-	return res
-}
 
-func dfs(nums []int, index int, tmp []int, res *[][]int){
-	if index > len(nums){
-		return
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+	dummy := &ListNode{0, nil}
+	cur := dummy
+	c1, c2 := l1, l2
+	for ; c1 != nil && c2 != nil; {
+		if c1.Val < c2.Val {
+			cur.Next = c1
+			c1 = c1.Next
+		} else {
+			cur.Next = c2
+			c2 = c2.Next
+		}
+		cur = cur.Next
 	}
-	if index == len(nums){
-		*res = append(*res, append([]int{}, tmp...))
+	if c1 != nil {
+		cur.Next = c1
 	}
-	for i := index; i < len(nums); i++{
-		nums[i], nums[index] = nums[index], nums[i]
-		tmp = append(tmp, nums[index])
-		dfs(nums, index+1, tmp, res)
-		tmp = tmp[0:len(tmp)-1]
+
+	if c2 != nil {
+		cur.Next = c2
 	}
+	return dummy.Next
 }
