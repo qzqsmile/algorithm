@@ -26,8 +26,3 @@ func twoSum(nums []int, k int) [][]int{
 	}
 	return res
 }
-
-func main(){
-	input := []int{-1,0,1,2,-1,-4}
-	threeSum(input)
-}
