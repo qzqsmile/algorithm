@@ -46,3 +46,27 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 
 	return dummy.Next
 }
+
+
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+ func reverseList(head *ListNode) *ListNode {
+    h, _ := helper(head)
+    return h
+}
+
+
+func helper(head *ListNode) (*ListNode, *ListNode){
+    if head == nil || head.Next == nil{
+        return head, head
+    }
+    h,  t := helper(head.Next)
+    head.Next = nil 
+    t.Next = head 
+    return h, t.Next
+}

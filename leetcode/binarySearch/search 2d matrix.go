@@ -40,3 +40,23 @@ func findrow(matrix [][]int, target int) int{
 	}
 	return b
 }
+
+// another solution
+//O(m+n) 关键在于找到一个连续的数组，可以看到 7 是个连续的数组，因此可以使用二分法
+
+// func searchMatrix(matrix [][]int, target int) bool {
+//     if len(matrix) == 0{
+//         return false
+//     }
+//     i, j := 0, len(matrix[0])-1
+//     for;i < len(matrix) && j >= 0;{
+//         if matrix[i][j] > target{
+//             j--
+//         }else if matrix[i][j] < target{
+//             i++
+//         }else{
+//             return true
+//         }
+//     }
+//     return false
+// }
