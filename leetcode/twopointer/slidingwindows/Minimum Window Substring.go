@@ -22,6 +22,7 @@ func minWindow(s string, t string) string {
         right++
         for;meetcount == len(lookup);{
             if _, ok := lookup[s[left]]; ok{
+                //最小放这里，最长的话放后边
                 lookup[s[left]]++
                 if lookup[s[left]] > 0{
                     meetcount--
