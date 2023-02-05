@@ -1,6 +1,9 @@
 package sort
 
-import "sort"
+import (
+    "sort"
+    "strconv"
+)
 
 func largestNumber(nums []int) string {
     quickSort(nums, 0, len(nums)-1)
@@ -20,7 +23,8 @@ func quickSort(nums []int, b int, e int){
     if b >= e{
         return 
     }
-    b1, e1 := b, e 
+    b1, e1 := b, e
+    //this last node will act as the Sentinel
     for;b1 <= e1;{
         for;b1 <= e1 && (!firstBiggerThanSecond(nums[b1], nums[e])); b1++{}
         for;b1 <= e1 && firstBiggerThanSecond(nums[e1], nums[e]) ; e1--{}
