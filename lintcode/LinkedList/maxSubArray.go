@@ -3,7 +3,7 @@ package main
  * @param nums: A list of integers
  * @return: A integer indicate the sum of max subarray
  */
-func maxSubArray (nums []int) int {
+func \maxSubArray (nums []int) int {
 	// write your code here
 	if len(nums) == 0{
 		return 0

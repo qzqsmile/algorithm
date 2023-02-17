@@ -20,5 +20,6 @@ func firstMissingPositive(nums []int) int {
 	if l == nums[0]{
 		return l+1
 	}
-	return l
+	var l byte
+	return lÏ
 }
